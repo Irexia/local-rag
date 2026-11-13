@@ -1,0 +1,92 @@
+RESIDENTIAL BATTERY STORAGE SYSTEMS — TECHNICAL REFERENCE
+Version 1.1 — Energy Systems Division
+=====================================
+
+1. OVERVIEW
+
+Residential battery storage systems allow homeowners to store
+excess solar energy generated during the day for use during the
+evening or during grid outages. Typical residential systems range
+from 5 kWh to 20 kWh of usable capacity.
+
+2. CHEMISTRY COMPARISON
+
+Lithium Iron Phosphate (LiFePO4):
+- Energy density: 90-160 Wh/kg
+- Cycle life: 3,000-6,000 cycles at 80% depth of discharge
+- Operating temperature: 0 to 45 degrees C
+- Thermal stability: Excellent, non-flammable electrolyte
+- Cost: Moderate
+- Best for: Long-duration residential storage, high safety
+
+NMC (Nickel Manganese Cobalt):
+- Energy density: 150-220 Wh/kg
+- Cycle life: 1,000-2,000 cycles at 80% depth of discharge
+- Operating temperature: 0 to 45 degrees C
+- Thermal stability: Moderate, requires BMS thermal management
+- Cost: Lower per kWh
+- Best for: EVs, shorter-duration storage
+
+Lead-Acid (AGM / Gel):
+- Energy density: 30-40 Wh/kg
+- Cycle life: 300-500 cycles at 50% depth of discharge
+- Operating temperature: -20 to 50 degrees C
+- Thermal stability: Good
+- Cost: Lowest initial, highest lifetime (due to replacement)
+- Best for: Off-grid backup, sensitive users on a budget
+
+3. BATTERY MANAGEMENT SYSTEM (BMS)
+
+The BMS is the critical safety and performance component of any
+lithium battery system. It monitors and controls:
+
+- Cell voltage: Individual cell balancing to keep all cells
+  within 50 mV of each other. A drift beyond 200 mV indicates
+  an aging or defective cell.
+- Temperature: NTC thermistors placed on each cell. Charging
+  must be halted if any cell exceeds 45 degrees C or drops
+  below 0 degrees C.
+- Current: Both charge and discharge current must be limited
+  to the cell datasheet maximum. A typical 100 Ah LiFePO4
+  cell is rated for 20A continuous discharge (2C).
+- State of Charge (SOC) estimation: Uses a combination of
+  voltage lookup tables, current integration (Coulomb
+  counting), and periodic open-circuit voltage calibration.
+
+4. DEPTH OF DISCHARGE AND LIFETIME
+
+For LiFePO4 cells, the relationship between depth of discharge
+(DOD) and cycle life follows approximately:
+
+- 20% DOD: 8,000+ cycles
+- 40% DOD: 5,000+ cycles
+- 60% DOD: 3,000+ cycles
+- 80% DOD: 2,000-3,000 cycles
+- 100% DOD: 800-1,200 cycles (not recommended)
+
+A 10 kWh system used daily at 60% DOD will deliver approximately
+6 kWh per day and last around 3,000 days (8 years) before
+capacity drops below 80% of rated.
+
+5. SAFETY REQUIREMENTS
+
+- The battery enclosure must be IP65 rated or higher for
+  outdoor installation.
+- Ventilation: At least 0.5 m³/min of airflow per kWh of
+  installed capacity for indoor installations.
+- The battery must be installed on a non-combustible surface.
+- A Class D fire extinguisher must be available within 3 metres.
+- The DC disconnect switch must be clearly labelled and located
+  within 2 metres of the battery.
+- All wiring must be rated for the maximum continuous current
+  plus 25% for fault conditions.
+- The installation must comply with local electrical codes
+  (IEC 62619, UL 1973, or equivalent).
+
+6. TYPICAL SYSTEM CONFIGURATION (10 kWh)
+
+- 16 x LiFePO4 cells (3.2V nominal each) in series = 51.2V
+- BMS: 16S, 100A continuous, 200A peak
+- Cells: 100 Ah each, matched within 1% capacity
+- Inverter/Charger: 5 kW hybrid, 51.2V input, 230V AC output
+- Expected lifetime at 50% daily DOD: 10+ years

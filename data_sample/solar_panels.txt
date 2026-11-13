@@ -1,0 +1,101 @@
+SOLAR PANEL INSTALLATION AND MAINTENANCE GUIDE
+Version 2.4 — Department of Energy Systems
+==========================================
+
+1. SITE ASSESSMENT
+
+Before installing any solar panel array, a thorough site assessment
+must be completed. The assessment covers the following:
+
+- Roof orientation: Panels produce up to 25% more energy when facing
+  true south (in the northern hemisphere) or true north (southern
+  hemisphere). East-west orientations lose approximately 10-15% in
+  annual yield.
+
+- Tilt angle: The optimal tilt angle equals the latitude of the
+  installation site. For a site at 40 degrees north latitude, the
+  panel should be tilted at 40 degrees from horizontal. A seasonal
+  adjustment of plus or minus 15 degrees can increase annual output
+  by 3-5%.
+
+- Shading analysis: Even partial shading on a single cell can reduce
+  the output of an entire string by up to 80%. A shading study using
+  a solace sensor or PV*SOL software must be performed at three
+  times of day (9 AM, noon, 3 PM) across equinox and solstice dates.
+
+- Structural load: Residential roofs must support a dead load of
+  at least 30 kg per square meter for the mounting hardware and
+  panels, plus a live load of 1.5 kN per square meter for snow
+  regions. A licensed structural engineer must sign off before
+  mounting.
+
+2. PANEL SELECTION
+
+Panels are rated in watts-peak (Wp). A typical residential system
+ranges from 3 kW to 10 kW. For a 6 kW system at a site with 4.2
+peak sun hours per day, the expected daily generation is
+6,000 W x 4.2 h = 25.2 kWh per day, before system losses.
+
+System losses to account for:
+- Inverter efficiency loss: 5-8%
+- Wiring and connector losses: 2-3%
+- Soiling losses (dust, bird droppings): 3-5% in arid regions,
+  1-2% in moderate climates
+- Temperature derating: approximately 0.35% per degree Celsius
+  above 25 degrees ambient
+- Mismatch losses: 1-3%
+- Total expected system loss: 12-20%
+
+Therefore a 6 kW system in a moderate climate should realistically
+produce between 20 and 22 kWh per day.
+
+3. INSTALLATION PROCEDURE
+
+Step 1: Mount the racking system to the roof structure using
+  pre-drilled holes sealed with Sikaflex 291 or equivalent
+  construction adhesive and 16g x 100mm screws.
+
+Step 2: Attach the MC4 connectors to the panel junction boxes.
+  Ensure the positive (+) and negative (-) leads are correctly
+  identified. A reverse polarity connection can damage the inverter.
+
+Step 3: Run DC cabling (minimum 6 mm² cross-section for runs under
+  20 metres) through a waterproof conduit from the panel array to
+  the inverter location.
+
+Step 4: Connect the inverter to the main switchboard at the
+  distribution board. The inverter output cable must be minimum
+  10 mm² and fused at 80% of the inverter rated current.
+
+Step 5: Ground the frame of each panel and the inverter chassis to
+  the earth electrode. Grounding wire must be minimum 4 mm²
+  green/yellow insulated cable.
+
+Step 6: Commission the system. Power on the inverter, verify DC
+  input voltage is within the inverter MPPT range, and confirm AC
+  output at the distribution board.
+
+4. MAINTENANCE SCHEDULE
+
+- Monthly: Visual inspection for physical damage, loose mounting
+  hardware, and abnormal inverter error codes.
+- Quarterly: Clean panels with a soft brush and deionised water.
+  Never use abrasive cleaners or pressure washers above 40 bar,
+  as these can crack the tempered glass cover.
+- Annually: Inspect all DC and AC connections for corrosion or
+  terminal loosening. Check inverter firmware for updates.
+- Every 5 years: Replace all DC connectors (MC4) as a precaution,
+  as UV degradation of the polymer housing can lead to arcing.
+
+5. COMMON FAULT CODES
+
+Code  F-001: Grid voltage out of range. Check utility connection.
+Code  F-002: DC input overvoltage. Verify panel string voltage
+            does not exceed inverter maximum DC voltage (typically
+            600V or 1000V depending on model).
+Code  F-003: Inverter over-temperature. Ensure ventilation clearance
+            of at least 15 cm on all sides.
+Code  F-004: Ground fault detected. Inspect DC cabling for
+            insulation damage.
+Code  F-005: Communication failure between inverter and monitoring
+            gateway. Check RS485 or Wi-Fi link.
