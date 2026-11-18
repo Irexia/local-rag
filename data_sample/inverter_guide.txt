@@ -1,0 +1,79 @@
+SOLAR AND HYBRID INVERTER SELECTION GUIDE
+Version 1.0 — Department of Energy Systems
+==========================================
+
+1. INVERTER TYPES
+
+String inverter: One inverter serves one or more series strings of
+panels. It has the lowest cost per kW and is the simplest to maintain.
+Shading on one panel reduces the output of the whole string.
+
+Microinverter: One small inverter is mounted behind each panel.
+Shading affects only the shaded panel. It has a higher cost per kW and
+more units to service on the roof.
+
+Hybrid inverter: Combines the PV inverter, a battery charger and a
+backup-power output in one unit. It is required for any system that
+stores energy in a battery.
+
+Weighted (European) efficiency is 92-95% for residential units, which
+is consistent with the 5-8% inverter loss used in the Installation
+Guide. Peak efficiency quoted on datasheets is typically 2-3
+percentage points higher than weighted efficiency.
+
+2. MPPT AND STRING SIZING
+
+The maximum power point tracker (MPPT) adjusts the operating voltage
+of each string to extract the most power. A typical 5 kW residential
+hybrid inverter has:
+
+- MPPT voltage window: 120 V to 500 V
+- Maximum DC input voltage: 600 V
+- Number of MPPT inputs: 2
+- Maximum input current per MPPT: 15 A
+
+Open-circuit voltage (Voc) rises as panels get colder, by
+approximately 0.3% per degree Celsius below 25 degrees. String Voc
+must be calculated at the coldest expected site temperature and must
+stay below the maximum DC input voltage.
+
+3. DC/AC RATIO AND CLIPPING
+
+The DC/AC ratio is the array rating in kWp divided by the inverter AC
+rating in kW. A ratio between 1.1 and 1.3 is recommended. For example,
+a 6 kW array on a 5 kW inverter has a ratio of 1.2. At a ratio of 1.2,
+clipping losses are normally below 2% of annual yield. Above 1.3,
+clipping losses become significant and the oversizing is not
+recommended.
+
+4. HYBRID INVERTER SPECIFICATION (5 kW CLASS)
+
+- Rated AC output: 5 kW continuous, 230 V
+- Surge capacity: 7.5 kW for 10 seconds
+- Battery input: 51.2 V nominal (matches a 16S LiFePO4 pack)
+- Maximum battery charge and discharge current: 100 A
+- Backup changeover time: under 20 ms
+- Enclosure rating: IP65, suitable for outdoor wall mounting
+- Ambient operating range: -25 to 60 degrees C, with output
+  derating above 40 degrees C
+- Mounting clearance: at least 15 cm on all sides
+
+5. ADDITIONAL FAULT CODES
+
+Codes F-001 to F-005 are listed in the Installation and Maintenance
+Guide. Hybrid inverters add the following codes:
+
+Code  F-006: Battery communication lost. Check the CAN bus cable
+            between the battery BMS and the inverter.
+Code  F-007: Battery under-voltage. Pack voltage is below 44.8 V.
+            Recharge from the grid or PV before reuse.
+Code  F-008: Battery over-voltage. Pack voltage is above 58.4 V.
+            Check BMS cell balancing.
+Code  F-009: AC overload. The connected load exceeds the continuous
+            rating. Disconnect the non-critical loads.
+
+6. SERVICE LIFE
+
+- Inverter design life: 10-15 years
+- Cooling fans: inspect annually and replace every 7 years
+- Firmware: check for updates once a year

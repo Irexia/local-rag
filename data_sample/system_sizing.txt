@@ -1,0 +1,74 @@
+RESIDENTIAL SOLAR AND STORAGE SIZING GUIDE
+Version 1.0 — Energy Systems Division
+=====================================
+
+1. ESTIMATING HOUSEHOLD LOAD
+
+Start from twelve months of electricity bills and calculate the
+average daily consumption in kWh. Typical daily consumption is:
+
+- Small apartment: 5-8 kWh per day
+- Average home: 10-15 kWh per day
+- Large home with air conditioning or an EV charger: 20-30 kWh per day
+
+Evening load is the energy used between 6 PM and 11 PM, when solar
+generation is zero. It is typically 35-45% of daily consumption.
+
+Worked example: a home uses 14 kWh per day. At an evening share of
+40%, the evening load is 5.6 kWh.
+
+2. PEAK SUN HOURS BY REGION
+
+- Northern Europe: 2.5-3.0 hours per day
+- Central Europe and other moderate climates: 3.5-4.5 hours per day
+- Mediterranean and US Southwest: 5.0-6.5 hours per day
+- Equatorial regions: 4.5-5.5 hours per day
+
+Use measured local data whenever it is available.
+
+3. SIZING THE ARRAY
+
+Array size in kW = daily energy target / (peak sun hours x 0.8).
+The factor 0.8 reflects the upper end of the system loss range.
+
+Worked example: 14 kWh per day at 4.2 peak sun hours gives
+14 / (4.2 x 0.8) = 4.17 kW. Round up to 11 panels of 400 Wp,
+which is a 4.4 kW array.
+
+A typical modern panel is rated 400 Wp and covers about 1.9 square
+metres. A 6 kW array therefore needs 15 panels and about 28.5 square
+metres of roof area.
+
+4. SIZING THE BATTERY
+
+Usable capacity needed = evening load x 1.2. The 20% margin covers
+conversion losses and ageing.
+
+Nominal capacity = usable capacity / planned depth of discharge.
+
+Worked example: an evening load of 5.6 kWh x 1.2 = 6.72 kWh usable.
+At 60% depth of discharge the nominal capacity is 6.72 / 0.6 =
+11.2 kWh.
+
+5. BACKUP AND AUTONOMY
+
+For backup during a grid outage, list the critical loads and add up
+their power. The total simultaneous critical load must stay below the
+continuous rating of the inverter.
+
+Typical critical loads:
+- Refrigerator: 150 W average
+- LED lighting: 100 W
+- Router and modem: 20 W
+- Phone and laptop chargers: 60 W
+
+These four loads total 330 W. Over a 12-hour outage they consume
+3.96 kWh. A backup target of one day for critical loads only is
+typical.
+
+6. DEGRADATION AND REPLACEMENT
+
+Panel output degrades by about 0.5% per year. After 25 years expect
+about 87% of the original output. The design life of the panels is
+25-30 years. The battery is normally replaced before the panels, and
+its replacement interval depends on the depth of discharge used.

@@ -1,5 +1,5 @@
 RESIDENTIAL BATTERY STORAGE SYSTEMS — TECHNICAL REFERENCE
-Version 1.1 — Energy Systems Division
+Version 1.2 — Energy Systems Division
 =====================================
 
 1. OVERVIEW
@@ -13,7 +13,8 @@ from 5 kWh to 20 kWh of usable capacity.
 
 Lithium Iron Phosphate (LiFePO4):
 - Energy density: 90-160 Wh/kg
-- Cycle life: 3,000-6,000 cycles at 80% depth of discharge
+- Cycle life: 2,000-3,000 cycles at 80% depth of discharge
+  (see Section 4 for other depths of discharge)
 - Operating temperature: 0 to 45 degrees C
 - Thermal stability: Excellent, non-flammable electrolyte
 - Cost: Moderate
@@ -48,7 +49,7 @@ lithium battery system. It monitors and controls:
   below 0 degrees C.
 - Current: Both charge and discharge current must be limited
   to the cell datasheet maximum. A typical 100 Ah LiFePO4
-  cell is rated for 20A continuous discharge (2C).
+  cell is rated for 100A continuous discharge (1C).
 - State of Charge (SOC) estimation: Uses a combination of
   voltage lookup tables, current integration (Coulomb
   counting), and periodic open-circuit voltage calibration.
@@ -89,4 +90,11 @@ capacity drops below 80% of rated.
 - BMS: 16S, 100A continuous, 200A peak
 - Cells: 100 Ah each, matched within 1% capacity
 - Inverter/Charger: 5 kW hybrid, 51.2V input, 230V AC output
-- Expected lifetime at 50% daily DOD: 10+ years
+- Expected lifetime at 50% daily DOD: approximately 4,000 cycles,
+  or 10+ years
+
+7. EFFICIENCY AND STANDBY LOSSES
+
+- Round-trip efficiency: LiFePO4 92-96%, NMC 90-95%, lead-acid 75-85%
+- Self-discharge: LiFePO4 2-3% per month, lead-acid 3-5% per month
+- Standby consumption of the BMS and inverter: 15-40 W

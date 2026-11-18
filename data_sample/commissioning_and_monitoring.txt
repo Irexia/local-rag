@@ -1,0 +1,51 @@
+COMMISSIONING, TESTING AND MONITORING PROCEDURE
+Version 1.0 — Department of Energy Systems
+==========================================
+
+1. PRE-ENERGISATION TESTS
+
+Complete these tests before closing the DC isolator for the first
+time:
+
+- Polarity check: Measure each string with a multimeter before it is
+  connected to the inverter. Reversed polarity must be corrected
+  before any MC4 connector is mated to the inverter input.
+- Open-circuit voltage: The measured string Voc must be within 5% of
+  the calculated value.
+- Insulation resistance: Test at 500 V DC. The result must be at
+  least 1 MOhm between each live conductor and earth.
+- Earth continuity: The resistance between any panel frame and the
+  earth electrode must be below 0.5 ohm.
+
+MC4 connectors are rated for 30 A and 1000 V DC. Never unplug an MC4
+connector while the string is under load; open the DC isolator first.
+
+2. FIRST POWER-ON
+
+After all tests pass, close the DC isolator and then the AC breaker.
+The inverter performs a grid synchronisation check for up to 5
+minutes before it starts exporting power.
+
+3. MONITORING
+
+- Data logging interval: 5 minutes
+- Low-yield alert: raise an alert if the daily yield falls below 80%
+  of the expected value for the same irradiance
+- Heartbeat alert: raise an alert if the monitoring gateway has not
+  reported for 30 minutes
+- Performance ratio (PR) is the actual yield divided by the
+  irradiation multiplied by the array rating. A healthy residential
+  system has an annual PR of 75-85%.
+
+4. COMMON CAUSES OF LOW YIELD
+
+- Soiling on the panels
+- New shading, for example tree growth
+- A failed string: if one string produces zero power, check its MC4
+  connectors and its string fuse
+- Inverter derating from high temperature (fault code F-003)
+
+5. RECORD KEEPING
+
+Keep the commissioning test results for the life of the system.
+Repeat the insulation resistance test every 2 years.
