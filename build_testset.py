@@ -627,3 +627,59 @@ Q("vague", "battery charging temp limits", "Charging must be halted if any cell 
 Q("vague", "lead acid vs lifepo4", "LiFePO4 offers 90-160 Wh/kg and 2,000-3,000 cycles at 80% DOD at moderate cost; lead-acid offers 30-40 Wh/kg and 300-500 cycles at 50% DOD, the lowest initial but highest lifetime cost.",
   (B, "Energy density: 90-160 Wh/kg"), (B, "Cycle life: 2,000-3,000 cycles at 80% depth of discharge"),
   (B, "Energy density: 30-40 Wh/kg"), (B, "Cycle life: 300-500 cycles at 50% depth of discharge"))
+
+
+def find_span(doc_text, span):
+    pat = r"\s+".join(re.escape(t) for t in span.split())
+    return re.search(pat, doc_text)
+
+
+def split_of(qid):
+    h = int(hashlib.md5(f"{SPLIT_SALT}:{qid}".encode()).hexdigest(), 16) % 1000
+    return "heldout" if h < HELDOUT_FRACTION * 1000 else "tuning"
+
+
+def main():
+    docs = {p.name: p.read_text(encoding="utf-8") for p in DATA_DIR.glob("*.txt")}
+    problems = []
+    seen_q = set()
+    for n, r in enumerate(rows, 1):
+        r["id"] = f"q{n:03d}"
+        norm = re.sub(r"\W+", " ", r["question"].lower()).strip()
+        if norm in seen_q:
+            problems.append(f"{r['id']}: duplicate question")
+        seen_q.add(norm)
+        if r["category"] == "unanswerable" and r["gold"]:
+            problems.append(f"{r['id']}: unanswerable question has gold spans")
+        if r["category"] != "unanswerable" and not r["gold"]:
+            problems.append(f"{r['id']}: answerable question has no gold span")
+        if r["category"] == "multi_doc" and len({g["source"] for g in r["gold"]}) < 2:
+            problems.append(f"{r['id']}: multi_doc question uses a single source")
+        for g in r["gold"]:
+            if g["source"] not in docs:
+                problems.append(f"{r['id']}: unknown source {g['source']}")
+            elif not find_span(docs[g["source"]], g["text"]):
+                problems.append(f"{r['id']}: span not found in {g['source']}: {g['text'][:70]!r}")
+
+    if problems:
+        print("\n".join(problems))
+        sys.exit(f"{len(problems)} problem(s) - fix before writing the test set")
+
+    # Stratified check: hash split can be uneven in small categories, report it.
+    for r in rows:
+        r["split"] = split_of(r["id"])
+
+    with OUT.open("w", encoding="utf-8") as f:
+        for r in rows:
+            f.write(json.dumps(r, ensure_ascii=False) + "\n")
+
+    print(f"wrote {len(rows)} questions to {OUT}")
+    tab = Counter((r["category"], r["split"]) for r in rows)
+    for cat in ["single_fact", "multi_fact", "multi_doc", "unanswerable", "vague"]:
+        print(f"  {cat:13s} tuning={tab[(cat, 'tuning')]:3d}  heldout={tab[(cat, 'heldout')]:3d}")
+    print(f"  total tuning={sum(v for (c, s), v in tab.items() if s == 'tuning')}"
+          f"  heldout={sum(v for (c, s), v in tab.items() if s == 'heldout')}")
+
+
+if __name__ == "__main__":
+    main()
