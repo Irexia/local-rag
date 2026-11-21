@@ -22,7 +22,6 @@ Lithium Iron Phosphate (LiFePO4):
 
 NMC (Nickel Manganese Cobalt):
 - Energy density: 150-220 Wh/kg
-- Cycle life: 1,000-2,000 cycles at 80% depth of discharge
 - Operating temperature: 0 to 45 degrees C
 - Thermal stability: Moderate, requires BMS thermal management
 - Cost: Lower per kWh
@@ -30,7 +29,7 @@ NMC (Nickel Manganese Cobalt):
 
 Lead-Acid (AGM / Gel):
 - Energy density: 30-40 Wh/kg
-- Cycle life: 300-500 cycles at 50% depth of discharge
+- Cycle life: 3000-5000 cycles at 50% depth of discharge
 - Operating temperature: -20 to 50 degrees C
 - Thermal stability: Good
 - Cost: Lowest initial, highest lifetime (due to replacement)
