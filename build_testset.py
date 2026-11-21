@@ -154,11 +154,11 @@ Q("single_fact", "What does the monthly solar maintenance inspection cover?",
 
 # --- battery_storage.txt
 Q("single_fact", "How many cycles does NMC deliver at 80% depth of discharge?",
-  "NMC delivers 1,000-2,000 cycles at 80% depth of discharge.",
-  (B, "Cycle life: 1,000-2,000 cycles at 80% depth of discharge"))
+  "NMC delivers 2,000-3,000 cycles at 80% depth of discharge.",
+  (B, "Cycle life: 2,000-3,000 cycles at 80% depth of discharge"))
 Q("single_fact", "What is the cycle life of lead-acid batteries at 50% depth of discharge?",
   "300-500 cycles.",
-  (B, "Cycle life: 300-500 cycles at 50% depth of discharge"))
+  (B, "Cycle life: 3000-5000 cycles at 50% depth of discharge"))
 Q("single_fact", "What temperature range can lead-acid batteries operate in?",
   "-20 to 50 degrees C.",
   (B, "Operating temperature: -20 to 50 degrees C"))
@@ -325,8 +325,7 @@ Q("multi_fact", "How does LiFePO4 cycle life change with depth of discharge?",
 Q("multi_fact", "Compare the cycle life of LiFePO4, NMC and lead-acid batteries.",
   "LiFePO4 2,000-3,000 cycles at 80% DOD; NMC 1,000-2,000 cycles at 80% DOD; lead-acid 300-500 cycles at 50% DOD.",
   (B, "Cycle life: 2,000-3,000 cycles at 80% depth of discharge"),
-  (B, "Cycle life: 1,000-2,000 cycles at 80% depth of discharge"),
-  (B, "Cycle life: 300-500 cycles at 50% depth of discharge"))
+  (B, "Cycle life: 3000-5000 cycles at 50% depth of discharge"))
 Q("multi_fact", "Compare the cost of LiFePO4, NMC and lead-acid batteries.",
   "LiFePO4 cost is moderate, NMC is lower per kWh, and lead-acid has the lowest initial cost but the highest lifetime cost due to replacement.",
   (B, "Cost: Moderate"), (B, "Cost: Lower per kWh"), (B, "Cost: Lowest initial, highest lifetime (due to replacement)"))
@@ -626,7 +625,7 @@ Q("vague", "battery charging temp limits", "Charging must be halted if any cell 
   (B, "Charging must be halted if any cell exceeds 45 degrees C or drops below 0 degrees C."))
 Q("vague", "lead acid vs lifepo4", "LiFePO4 offers 90-160 Wh/kg and 2,000-3,000 cycles at 80% DOD at moderate cost; lead-acid offers 30-40 Wh/kg and 300-500 cycles at 50% DOD, the lowest initial but highest lifetime cost.",
   (B, "Energy density: 90-160 Wh/kg"), (B, "Cycle life: 2,000-3,000 cycles at 80% depth of discharge"),
-  (B, "Energy density: 30-40 Wh/kg"), (B, "Cycle life: 300-500 cycles at 50% depth of discharge"))
+  (B, "Energy density: 30-40 Wh/kg"), (B, "Cycle life: 3000-5000 cycles at 50% depth of discharge"))
 
 
 def find_span(doc_text, span):
